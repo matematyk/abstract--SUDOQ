@@ -1,0 +1,92 @@
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{braket}
+\usepackage{comment}
+\usepackage{float}
+\usepackage{bbm,amsfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage[title]{appendix}
+\usepackage{biblatex}
+
+\hypersetup{
+	colorlinks=true,  
+	linkcolor=blue,   
+	citecolor=blue,   
+	urlcolor=blue     
+}
+
+\def\A{ {\mathcal A} }
+\def\B{ {\mathcal B} }
+\def\C{ {\mathcal C} }
+\def\D{ {\mathcal D} }
+\def\E{ {\mathcal E} }
+\def\F{ {\mathcal F} }
+\def\G{ {\mathcal G} }
+\def\H{ {\mathcal H} }
+\def\I{ {\mathcal I} }
+\def\J{ {\mathcal J} }
+\def\K{ {\mathcal K} }
+\def\L{ {\mathcal L} }
+\def\M{ {\mathcal M} }
+\def\N{ {\mathcal N} }
+\def\O{ {\mathcal O} }
+\def\P{ {\mathcal P} }
+\def\R{ {\mathcal R} }
+\def\S{ {\mathcal S} }
+\def\T{ {\mathcal T} }
+\def\U{ {\mathcal U} }
+\def\V{ {\mathcal V} }
+
+\newcommand{\tra}[1]{\mathrm{tr}\left( #1 \right)}
+\newcommand{\trb}[2]{\mathrm{tr}_{#1}\left( #2 \right)}
+\def\>{\rangle}
+\def\<{\langle}
+\def\plus{ |+\> }
+\def\minus{|-\> }
+\def\plusdag{ \<+| }
+\def\minusdag{ \<-| }
+\def\Hc{\dagger}
+\def\hc{^{\dagger}}
+\def\diag{ \mathrm{diag}}
+
+%\newcommand{\bra}[1]{\langle {#1} |}
+%\newcommand{\ket}[1]{| {#1} \rangle}
+\newcommand{\vect}[1]{|#1\rangle\!\rangle}
+\newcommand{\abs}[1]{\left| {#1} \right|} 
+\newcommand{\ketbra}[2]{\ensuremath{\left|#1\right\rangle\!\!\left\langle#2\right|}}
+\newcommand{\ketbrax}[2]{\ensuremath{|#1\rangle\!\langle#2|}}
+%\newcommand{\braket}[2]{\ensuremath{\left\langle#1\right|\left.\!#2\right\rangle}}
+\newcommand{\matrixel}[3]{\ensuremath{\left\langle #1 \vphantom{#2#3} \right| #2 \left| #3 \vphantom{#1#2} \right\rangle}}
+\newcommand{\iden}{\mathbb{I}} 
+
+\def\non{ \nonumber\\}
+
+\newcommand{\kk}[1]{{\color{red}#1}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{example}[defi]{Example}
+
+%% bold lines inside tables, table spacings
+\usepackage{bbold}
+\usepackage{xspace}
+\usepackage{array}

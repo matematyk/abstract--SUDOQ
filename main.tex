@@ -1,0 +1,148 @@
+\documentclass[11pt]{article}
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\input{packages}
+
+\usepackage[paper,tmargin=1cm,bmargin=1.5cm, innermargin=2cm]{geometry}
+
+
+\addbibresource{Bib.bib}
+
+
+\begin{document}
+
+\begin{center}
+{ \bf \Large 
+Genuine quantum SudoQ and its cardinality
+} \bigskip
+
+%%%%% AUTORZY 
+% Podkreśl imię i nazwisko autora, który będzie prezentował
+{ \bf \large
+	\bf{Jerzy Paczos}$^{\rm 1}$
+	\bf{Marcin Wierzbiński}$^{\rm 2}$,
+	\bf{Grzegorz Rajchel-Mieldzioć}$^{\rm 2}$,
+	\bf{Adam Burhardt}$^{\rm 4}$,
+	\bf{Karol Życzkowski}$^{\rm 4}$
+} \bigskip
+
+%%%%% AFILIACJE
+\begin{center}
+$^{\rm 1}$ Faculty of Physics, University of Warsaw
+$^{\rm 2}$ Faculty of Mathematics, Informatics and Mechanics, University of Warsaw,
+$^{\rm 3}$ Center for Theoretical Physics Polish Academy of Science $^{\rm 4}$ Faculty of Physics, Astronomy and Applied Computer Science, Jagiellonian University
+\end{center}
+\end{center}
+
+\bigskip
+
+\begin{center}
+    Abstract:
+\end{center} 
+We expand the quantum variant of the popular game Sudoku by considering the \emph{genuine quantum solutions} – the ones that cannot be reduced to classical counterparts by a unitary operation. We introduce the notion of \emph{cardinality} of a quantum Sudoku, equal to the number of distinct vectors appearing in the pattern.  Our results include establishing the admissible cardinalities and finding the complete parameterization of the $4\times 4$ case, which contains solutions with cardinality $16$. Furthermore, we explored a family of genuine quantum solutions of $9\times 9$ SudoQ, which contains grids of maximal cardinality $81$, and proved that for any $N$  it is possible to find an $N^2\times N^2$ SudoQ solution of cardinality $N^4$. We also noticed the connection between some special solutions and \emph{mutually unbiased bases}. The issue of the minimal number of hints, which imply the unique solution of a given Sudoku, is also addressed for the quantum version of the game.
+
+\section{Introduction}
+Numerous classical concepts have their quantum counterparts. One of these concepts is the quantum variant of the popular Sudoku puzzle. Authors Nechita and Pillet \cite{Nechita2020SudoQA} introduced a version of classical Sudoku with the special quantum case, which was named SudoQ. In order to notice the connection between quantum and classical Sudoku let us observe that every element of $N\times N$ Sudoku can be represented as a vector from a complex $N$-dimensional Hilbert space. Constraints are then transformed to orthogonality relations for every row, column, and $N \times N$ disjoint blocks which form an orthogonal basis. We may consider that every Sudoku is also trivially a quantum one since every element $\{1, ..., 9\}$ can be regarded as a vector from a certain basis $\{ \ket{1}, \ldots , \ket{9}\}$ with an obvious fulfillment of orthogonality conditions.
+
+In this work, \cite{Nechita2020SudoQA} authors introduced and analyzed a randomized algorithm for computing solution of SudoQ puzzle. We extended his idea of the quantum variant considering the \emph{genuine quantum solutions} – the ones that cannot be reduced to classical counterparts by a unitary operation. 
+We introduce the notion of \emph{cardinality} of a quantum Sudoku, equal to the number of distinct vectors appearing in the pattern. Subsequently, we provided the reader with the cardinality of general solutions with maximal cardinality of SudoQ in dimensions up to $N \times N$. We observed that any $N\times N$ SudoQ with cardinality greater than $N$ is not unitarily similar to a classical one up to a unitary operator. 
+
+In above is the $4 \times 4$ SudoQ solution with maximal (16) cardinality
+\begin{example}{}\label{ex:4x4_card16}
+\[
+ \begin{tabular}{!{\vrule width 1pt}c|c!{\vrule width 1pt}c|c!{\vrule width 1pt}}
+    \noalign{\hrule height 1pt}
+    $\ket{1}$ & $\ket{2}$ & $\ket{3}+\ket{4}$ & $\ket{3}-\ket{4}$ \tabularnewline
+    \hline
+    $\ket{3}$ & $\ket{4}$ & $\ket{1}-\ket{2}$ & $\ket{1}+\ket{2}$ \tabularnewline
+    \noalign{\hrule height 1pt}
+    $\ket{2}+\ket{4}$ & $\ket{1}-\ket{3}$ & $\ket{1}+\ket{2}+\ket{3}-\ket{4}$ & $\ket{1}-\ket{2}+\ket{3}+\ket{4}$ \tabularnewline
+    \hline
+    $\ket{2}-\ket{4}$ & $\ket{1}+\ket{3}$ & $\ket{1}+\ket{2}-\ket{3}+\ket{4}$ & $\ket{1}-\ket{2}-\ket{3}-\ket{4}$ \tabularnewline
+    \noalign{\hrule height 1pt}
+\end{tabular}
+\]
+\end{example}
+
+\section{Main part}
+In main part we greatly simplified the notation replacing each block of the $N^2\times N^2$ solution by the $N^2\times N^2$ matrix whose columns are consecutive vectors of this block written in terms of the computational basis. 
+
+For instance we can write the upper left block from Example \ref{ex:4x4_card16} as a $4\times 4$ identity matrix, whereas for example the lower left block can be represented by the matrix $\mathcal{Q}$ such that $\mathcal{Q}\ket{1}=\ket{2}+\ket{4}$, $\mathcal{Q}\ket{2}=\ket{1}-\ket{3}$, etc.
+
+
+ \begin{lemma}\label{biglemma}
+    Consider an $N$-cycle $\pi$, its permutation matrix $\mathnormal{P}_\pi$ $(\mathnormal{P}_\pi^N=\mathbb{1})$, and two sets of $N$-dimensional unitary matrices $\{\mathnormal{U}_i\}_{i\in I}$ and $\{\mathnormal{V}_j\}_{j\in I}$, $I=\{0,\ldots,N-1\}$. Then the following grid
+    
+    \[
+    \begin{tabular}{!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}}
+    \noalign{\hrule height 1pt}
+    $\mathnormal{V}_0\otimes\mathnormal{U}_0$ & $\mathnormal{V}_0\mathnormal{P}_\pi\otimes\mathnormal{U}_1$ & $\mathnormal{V}_0\mathnormal{P}_\pi^2\otimes\mathnormal{U}_2$ & $\cdots$ & $\mathnormal{V}_0\mathnormal{P}_\pi^{N-1}\otimes\mathnormal{U}_{N-1}$ \tabularnewline
+    \noalign{\hrule height 1pt}
+    $\mathnormal{V}_1\otimes\mathnormal{U}_0\mathnormal{P}_\pi$ & $\mathnormal{V}_1\mathnormal{P}_\pi\otimes\mathnormal{U}_1\mathnormal{P}_\pi$ & $\mathnormal{V}_1\mathnormal{P}_\pi^2\otimes\mathnormal{U}_2\mathnormal{P}_\pi$ & $\cdots$ & $\mathnormal{V}_1\mathnormal{P}_\pi^{N-1}\otimes\mathnormal{U}_{N-1}\mathnormal{P}_\pi$ \tabularnewline
+    \noalign{\hrule height 1pt}
+    $\mathnormal{V}_2\otimes\mathnormal{U}_0\mathnormal{P}_\pi^2$ & $\mathnormal{V}_2\mathnormal{P}_\pi\otimes\mathnormal{U}_1\mathnormal{P}_\pi^2$ & $\mathnormal{V}_2\mathnormal{P}_\pi^2\otimes\mathnormal{U}_2\mathnormal{P}_\pi^2$ & $\cdots$ & $\mathnormal{V}_2\mathnormal{P}_\pi^{N-1}\otimes\mathnormal{U}_{N-1}\mathnormal{P}_\pi^2$ \tabularnewline
+    \noalign{\hrule height 1pt}
+    $\vdots$ & $\vdots$ & $\vdots$ & $\ddots$ & $\vdots$ \tabularnewline
+    \noalign{\hrule height 1pt}
+    $\mathnormal{V}_{N-1}\otimes\mathnormal{U}_0\mathnormal{P}_\pi^{N-1}$ & $\mathnormal{V}_{N-1}\mathnormal{P}_\pi\otimes\mathnormal{U}_1\mathnormal{P}_\pi^{N-1}$ & $\mathnormal{V}_{N-1}\mathnormal{P}_\pi^2\otimes\mathnormal{U}_2\mathnormal{P}_\pi^{N-1}$ & $\cdots$ & $\mathnormal{V}_{N-1}\mathnormal{P}_\pi^{N-1}\otimes\mathnormal{U}_{N-1}\mathnormal{P}_\pi^{N-1}$ \tabularnewline
+    \noalign{\hrule height 1pt}
+    \end{tabular}
+    \]
+    is the proper SudoQ solution.
+    \end{lemma}
+
+\begin{theorem}
+    Lets  $\{\mathnormal{U}_i\}_{i\in I}$ and  $\{\mathnormal{V}_j\}_{j\in I}$ be a families of unitary matrixes with the properties that each two matrices of the form  $\mathnormal{U}_i\otimes\mathnormal{V}_j$ have all the columns different then $n^2\times n^2$ SudoQ has solution of maximal ($n^4$) cardinality for any $n$. 
+\end{theorem}
+
+\begin{example}
+The following construction leads to the $9\times 9$ solution filled with MUBs (an analogy to the Ex. \ref{ex:4x4_card16} where we had the $4\times 4$ solution with two sets of MUBs).
+\newline
+Any two mutually unbiased bases correspond to two unitary matrices, such that if we map one of them to the identity, the second one must be complex Hadamard matrix. It turns out that if we choose the matrices $\mathnormal{U}_0$ and $\mathnormal{V}_0$ to be the three dimensional identity matrix
+\[
+\mathnormal{U}_0=\mathnormal{V}_0=\mathbb{1},
+\]
+Let matrix $\mathnormal{U}_1$ and $\mathnormal{V}_1$ be the discrete Fourier matrix and $P$ is permutation matrix
+\[
+\mathnormal{U}_1=\mathnormal{V}_1=
+\frac{1}{\sqrt{3}}
+\begin{bmatrix}
+    1 & 1 & 1 \\
+    1 & \omega & \omega^2 \\
+    1 & \omega^2 & \omega
+\end{bmatrix},
+    \quad    
+    \mathnormal{U}_2=\mathnormal{V}_2=
+\frac{1}{\sqrt{3}}
+\begin{bmatrix}
+    1 & 1 & 1 \\
+    \omega & \omega^2 & 1 \\
+    \omega & 1 & \omega^2
+\end{bmatrix}, 
+    \quad
+P_{(1,3,2)} = 
+\begin{bmatrix}
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+    1 & 0 & 0
+\end{bmatrix}
+\]
+where $\omega=e^{2\pi i/3}$ then arbitrarily chosen triplet of blocks, such that each block is from the separate row and column, gives rise to the triplet of MUBs.
+\[
+\begin{tabular}{!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}}
+    \noalign{\hrule height 1pt}
+    $\mathnormal{V}_0\otimes\mathnormal{U}_0$ & $\mathnormal{V}_0\mathnormal{P}_\pi\otimes\mathnormal{U}_1$ & $\mathnormal{V}_0\mathnormal{P}_\pi^2\otimes\mathnormal{U}_2$ \tabularnewline
+    \noalign{\hrule height 1pt}
+    $\mathnormal{V}_1\otimes\mathnormal{U}_0\mathnormal{P}_\pi$ & $\mathnormal{V}_1\mathnormal{P}_\pi\otimes\mathnormal{U}_1\mathnormal{P}_\pi$ & $\mathnormal{V}_1\mathnormal{P}_\pi^2\otimes\mathnormal{U}_2\mathnormal{P}_\pi$ \tabularnewline
+    \noalign{\hrule height 1pt}
+    $\mathnormal{V}_2\otimes\mathnormal{U}_0\mathnormal{P}_\pi^2$ & $\mathnormal{V}_2\mathnormal{P}_\pi\otimes\mathnormal{U}_1\mathnormal{P}_\pi^2$ & $\mathnormal{V}_2\mathnormal{P}_\pi^2\otimes\mathnormal{U}_2\mathnormal{P}_\pi^2$ \tabularnewline
+    \noalign{\hrule height 1pt}
+    \end{tabular}
+\]
+
+\end{example}
+
+\printbibliography
+
+\end{document}
