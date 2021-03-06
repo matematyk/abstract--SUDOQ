@@ -50,7 +50,7 @@ To study key difference between classically equivalent SudoQ and genuine quantum
 
 
 \section{Results}
-Our first goal was to work with SudoQ $4 \times 4$. We provided the reader with the parametrization of SudoQ which yields all admissible cardinalities for a certain values of parameters. We obtained that the only admissible cardinalities of $4 \times 4$ square are $4$,$6$, $8$ and $16$.
+We provided the reader with the full parametrization of $4 \times 4$ SudoQ was obtained, along with a one-parameter family of grids which admits all admissible cardinalities for a certain values of parameters. We obtained that the only admissible cardinalities in the $4 \times 4$ case are $4$,$6$, $8$ and $16$.
 In below example is the $4 \times 4$ SudoQ solution with maximal (16) cardinality
 \begin{example}{}\label{ex:4x4_card16}
 \[
@@ -68,19 +68,17 @@ In below example is the $4 \times 4$ SudoQ solution with maximal (16) cardinalit
 \]
 \end{example}
 
-This example is interesting because, vectors from upper left block and lower right block formulate mutually unbiased bases (MUB), i.e. every pair of vectors from both bases has the same scalar product \cite{Ivonovic_1981,Wooters_1989}. The same holds true for pair of bases from upper right and lower left blocks.
+Example 1 is particularly interesting because, vectors from upper left block and lower right block formulate mutually unbiased bases (MUB), i.e. every pair of vectors from both bases has the same scalar product \cite{Ivonovic_1981,Wooters_1989}. The same holds true for pair of bases from upper right and lower left blocks.
 
 
-The next step was to create a general way to create $N \times N$ SudoQ solutions with maximum cardinality. For this purpose we introduced the notation replacing each block of the $N^2\times N^2$ solution by the $N^2\times N^2$ matrix whose columns are consecutive vectors of this block written in terms of the computational basis. 
+In the general case of $N^{2} \times N^{2}$ SudoQ we obtained solutions with maximal cardinality, i.e $N^{4}$. In order to present the general solution let us introduce the following notation: each $N \times N$ block will be replaced by $N^{2} \times N^{2}$ matix, whose rows are treated as a consecutive vectors from the block, written in terms of the computational basis. 
 
 
+For instance we can write the upper left block from Example \ref{ex:4x4_card16} as a $4\times 4$ identity matrix, and lower left block can be represented by the matrix $\mathcal{Q}$ such that $\mathcal{Q}\ket{1}=\ket{2}+\ket{4}$, $\mathcal{Q}\ket{2}=\ket{1}-\ket{3}$, etc.
 
-For instance we can write the upper left block from Example \ref{ex:4x4_card16} as a $4\times 4$ identity matrix, whereas for example the lower left block can be represented by the matrix $\mathcal{Q}$ such that $\mathcal{Q}\ket{1}=\ket{2}+\ket{4}$, $\mathcal{Q}\ket{2}=\ket{1}-\ket{3}$, etc.
-
-Based on this reduction, the following lemma has been formulated:
-
+Using the above notation we are able to probe the following lemma reargind form of the SudoQ solution:
  \begin{lemma}\label{biglemma}
-    Let $\pi$ be a $N$-cycle, its permutation matrix $\mathnormal{P}_\pi$ $(\mathnormal{P}_\pi^N=\mathbb{1})$, and two families of $N$-dimensional unitary matrices $\{\mathnormal{U}_i\}_{i\in I}$ and $\{\mathnormal{V}_j\}_{j\in I}$, $I=\{0,\ldots,N-1\}$ then the grid defined as follow:
+    Let $\pi$ be a $N$-cycle, its permutation matrix $\mathnormal{P}_\pi$ $(\mathnormal{P}_\pi^N=\mathbb{1})$, and two families of $N$-dimensional unitary matrices $\{\mathnormal{U}_i\}_{i\in I}$ and $\{\mathnormal{V}_j\}_{j\in I}$, $I=\{0,\ldots,N-1\}$. Then the grid defined as follow:
     \[
     \begin{tabular}{!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}}
     \noalign{\hrule height 1pt}
@@ -96,22 +94,19 @@ Based on this reduction, the following lemma has been formulated:
     \noalign{\hrule height 1pt}
     \end{tabular}
     \]
-    is the proper SudoQ solution.
+    is a proper SudoQ solution.
     \end{lemma}
     
-We found important properties of the family of unitar matrices to obtain  maximal cardinality: 
-\begin{theorem}
-    Let $\{\mathnormal{U}_i\}_{i\in I}$ and  $\{\mathnormal{V}_j\}_{j\in I}$ be families of unitary matrices with the properties that each two matrices of the form  $\mathnormal{U}_i\otimes\mathnormal{V}_j$ have all the columns different. Then $n^2\times n^2$ SudoQ grid filled as in \ref{biglemma} has solution of maximal ($n^4$) cardinality for any $n$. 
+Above lemma allows us to prove the following theorem concerning construction of solutions of SudoQ with maximal cardinality in the case of a general dimension.
+\begin{theorem}\label{main:the}
+    Let $\{\mathnormal{U}_i\}_{i\in I}$ and  $\{\mathnormal{V}_j\}_{j\in I}$ be families of unitary matrices, such that every matrix $\mathnormal{U}_i\otimes\mathnormal{V}_j$ has different columns. Then $N^2\times N^2$ SudoQ grid filled according lemma \ref{biglemma} is a solution of a maximal cardinality $N^{4}$ for any dimension $N$.
 \end{theorem}
 
-It remains an open question to create solutions for $N>4$ which have cardinality between $N^{2}$ and $N^{4}$. The following construction leads to the $9\times 9$ solution (with maximal cardianality) filled with MUBs (an analogy to the Ex. \ref{ex:4x4_card16} where we had the $4\times 4$ solution with two sets of MUBs).
-\begin{example}
-Consider $\mathnormal{U}_0$ and $\mathnormal{V}_0$ as identity matrix of size $3$: 
-\[
-\mathnormal{U}_0=\mathnormal{V}_0=\mathbb{1},
-\]
+We provde the reader with examples of families of unitary matrices which fullfills conditions specified in Theorem \ref{main:the}, thus obtaining solutions of maximal cardinality in every dimension. Full characterization of admissible cardinalites for $N>2$ remains an open question, however let us note that the construction from Lemma \ref{biglemma} premits us to find also certain cardinalities in between by allowing some of $V_i$ or $U_i$ to be equal. 
 
-Let matrix $\mathnormal{U}_1$ and $\mathnormal{V}_1$ be the discrete Fourier matrix and $P$ is permutation matrix for $3$-Cycle $(1,3,2)$
+As an example of an interesting solution of maximal cardinality in dimension $9 \times 9$, let us introduce the following set of unitary matrices, leading to $3 \times 3$ blocks filled with MUBs in an analogy to the Example \ref{ex:4x4_card16}. 
+\begin{example}
+Let $\mathnormal{U}_0=\mathnormal{V}_0=\mathbb{1}$ be identity matrix of size $3$,  $\mathnormal{U}_1$ and $\mathnormal{V}_1$ be the discrete Fourier matrix and let $P$ be a permutation matrix for $3$-Cycle $(1,3,2)$
 \[
 \mathnormal{U}_1=\mathnormal{V}_1=
 \frac{1}{\sqrt{3}}
@@ -136,9 +131,8 @@ P_{(1,3,2)} =
     1 & 0 & 0
 \end{bmatrix}
 \]
-where $\omega=e^{2\pi i/3}$ then arbitrarily chosen triplet of blocks, such that each block is from the separate row and column, gives rise to the triplet of MUBs.
-This grid is proper $9\times9$ SudoQ solution with cardinally $81$
-\[
+where $\omega=e^{2\pi i/3}$, then any triplet of blocks from seperate row and column define three MUBs. Due to the Lemma 2, the solution (\ref{sol:9x9}) of $9\times9$ SudoQ is proper, with cardinally $81$. 
+\begin{equation}\label{sol:9x9}
 \begin{tabular}{!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}c!{\vrule width 1pt}}
     \noalign{\hrule height 1pt}
     $\mathnormal{V}_0\otimes\mathnormal{U}_0$ & $\mathnormal{V}_0\mathnormal{P}_\pi\otimes\mathnormal{U}_1$ & $\mathnormal{V}_0\mathnormal{P}_\pi^2\otimes\mathnormal{U}_2$ \tabularnewline
@@ -148,8 +142,7 @@ This grid is proper $9\times9$ SudoQ solution with cardinally $81$
     $\mathnormal{V}_2\otimes\mathnormal{U}_0\mathnormal{P}_\pi^2$ & $\mathnormal{V}_2\mathnormal{P}_\pi\otimes\mathnormal{U}_1\mathnormal{P}_\pi^2$ & $\mathnormal{V}_2\mathnormal{P}_\pi^2\otimes\mathnormal{U}_2\mathnormal{P}_\pi^2$ \tabularnewline
     \noalign{\hrule height 1pt}
     \end{tabular}
-\]
-
+\end{equation}
 \end{example}
 
 \printbibliography
