@@ -1,59 +1,92 @@
-\documentclass[11pt]{article}
-\pagestyle{empty}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+%\documentclass[11pt]{article}
+%\pagestyle{empty}
+\documentclass[aps,onecolumn,floatfix,superscriptaddress]{revtex4}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
 \input{packages}
 
-\usepackage[paper,tmargin=1cm,bmargin=1.5cm, innermargin=2cm]{geometry}
-
+%\usepackage[paper,tmargin=1cm,bmargin=1.5cm, innermargin=2cm]{geometry}
+\usepackage[paperwidth=210mm,paperheight=297mm,centering,hmargin=2cm,vmargin=2.5cm]{geometry}
 
 \addbibresource{Bib.bib}
 
 
 \begin{document}
 
-\begin{center}
-{ \bf \Large 
-Genuine quantum SudoQ and its cardinality
-} \bigskip
+% \begin{center}
+% { \bf \Large 
+% Genuine quantum SudoQ and its cardinality
+% } \bigskip
 
-%%%%% AUTORZY 
-% Podkreśl imię i nazwisko autora, który będzie prezentował
-{ \bf \large
-	\bf{Jerzy Paczos}$^{\rm 1}$
-	\bf{Marcin Wierzbiński}$^{\rm 2}$,
-	\bf{Grzegorz Rajchel-Mieldzioć}$^{\rm 3}$,
-	\bf{Adam Burhardt}$^{\rm 4}$,
-	\bf{Karol Życzkowski}$^{\rm 4}$
-} \bigskip
+% %%%%% AUTORZY 
+% % Podkreśl imię i nazwisko autora, który będzie prezentował
+% { \bf \large
+% 	\bf{Jerzy Paczos}$^{\rm 1}$,
+% 	\bf{Marcin Wierzbiński}$^{\rm 2}$,
+% 	\bf{Grzegorz Rajchel-Mieldzioć}$^{\rm 3}$,
+% 	\newline
+% 	\bf{Adam Burhardt}$^{\rm 4}$,
+% 	\bf{Karol Życzkowski}$^{\rm 3, 4}$
+% } 
 
-%%%%% AFILIACJE
-\begin{center}
-$^{\rm 1}$ Faculty of Physics, University of Warsaw
-$^{\rm 2}$ Faculty of Mathematics, Informatics and Mechanics, University of Warsaw,
-$^{\rm 3}$ Center for Theoretical Physics Polish Academy of Science $^{\rm 4}$ Faculty of Physics, Astronomy and Applied Computer Science, Jagiellonian University
-\end{center}
-\end{center}
+% %%%%% AFILIACJE
+% \begin{center}
+% $^{\rm 1}$Faculty of Physics, University of Warsaw,
+% $^{\rm 2}$Faculty of Mathematics, Informatics and Mechanics, University of Warsaw,
+% $^{\rm 3}$Center for Theoretical Physics Polish Academy of Science,
+% $^{\rm 4}$Faculty of Physics, Astronomy and Applied Computer Science, Jagiellonian University
+% \end{center}
+% \end{center}
 
-\bigskip
+\title{Genuine quantum SudoQ and its cardinality}
 
-\begin{center}
-    Abstract:
-\end{center} 
-We expand the quantum variant of the popular game Sudoku by considering the \emph{genuine quantum solutions} – the ones that cannot be reduced to classical counterparts by a unitary operation. Consequently, we introduce the notion of \emph{cardinality} of a quantum Sudoku(SudoQ), equal to the number of distinct vectors appearing in the pattern.  We find the complete parameterization of the $4\times 4$ SudoQ game and establish the admissible cardinalities in that case. In particular, a solution with maximal cardinality is presented. Furthermore, we explored a family of genuine quantum solutions of $9\times 9$ SudoQ. In general, we proved that for any $N$  it is possible to find an $N^2\times N^2$ SudoQ solution of cardinality $N^4$. Provided construction resembles the construction of mutually unbiased bases. As in the classical version of the Sudoku game, we address the problem of uniqueness of the solution for a given partially filled SudoQ game.
+\author{Jerzy Paczos}
+\affiliation{Faculty of Physics, University of Warsaw}
+\author{\underline{Marcin Wierzbiński}}
+\affiliation{Faculty of Mathematics, Informatics and Mechanics, University of Warsaw}
+\author{Grzegorz Rajchel-Mieldzio{\'c}}
+\affiliation{Center for Theoretical Physics, Polish Academy of Sciences}
+\author{Adam Burhardt}
+\affiliation{Faculty of Physics, Astronomy and Applied Computer Science, Jagiellonian University}
+\author{Karol {\.Z}yczkowski}
+\affiliation{Center for Theoretical Physics, Polish Academy of Sciences}
+\affiliation{Faculty of Physics, Astronomy and Applied Computer Science, Jagiellonian University}
+
+\date{\today}
+
+% \bigskip
+% \begin{center}
+%      \today
+% \end{center}
+% \begin{center}
+%   \textbf{Abstract} 
+% \end{center} 
+\begin{abstract}
+\noindent
+We expand the quantum variant of the popular game Sudoku by considering the \emph{genuine quantum solutions} – the ones that cannot be reduced to classical counterparts by a unitary operation. Consequently, we introduce the notion of \emph{cardinality} of a quantum Sudoku(SudoQ), equal to the number of distinct vectors appearing in the pattern.  We find the complete parameterization of the $4\times 4$ SudoQ game and establish the admissible cardinalities in that case. In particular, a solution with maximal cardinality equal to $16$ is presented. Furthermore, we explored a family of genuine quantum solutions of $9\times 9$ SudoQ. In general, we proved that for any $N$  it is possible to find an $N^2\times N^2$ SudoQ solution of cardinality $N^4$. Provided construction resembles the construction of mutually unbiased bases. As in the classical version of the Sudoku game, we address the problem of uniqueness of the solution for a given partially filled SudoQ game.
+\end{abstract}
+
+\maketitle
 
 \section{Introduction}
-Numerous classical concepts have their quantum counterparts and the popular Sudoku puzzle is no different. Recently Nechita and Pillet \cite{Nechita2020SudoQA} introduced a quantum version of Sudoku, which was named SudoQ. In order to notice the connection between quantum and classical Sudoku let us observe that every element of $N^{2}\times N^{2}$ Sudoku can be represented as a vector from a complex $N^{2}$-dimensional Hilbert space. Constraints are then transformed to orthogonality relations for every row, column, and $N \times N$ disjoint blocks which form an orthogonal basis. Lets us note that every Sudoku is also trivially a quantum one since every element $\{1, ..., 9\}$ can be regarded as a vector from the computational basis $\{ \ket{1}, \ldots , \ket{9}\}$ with an obvious fulfillment of orthogonality conditions.
+Numerous classical concepts have their quantum counterparts and the popular Sudoku puzzle is no different. Recently Nechita and Pillet \cite{Nechita2020SudoQA} introduced a quantum version of Sudoku, which was named SudoQ. In order to notice the connection between quantum and classical Sudoku, let us observe that every element of $N^{2}\times N^{2}$ Sudoku can be represented as a vector from a complex $N^{2}$-dimensional Hilbert space. Constraints are then transformed to orthogonality relations for every row, column, and $N \times N$ disjoint blocks which form an orthogonal basis. Lets us note that every Sudoku is also trivially a quantum one since every element $\{1, ..., 9\}$ can be regarded as a vector from the computational basis $\{ \ket{1}, \ldots , \ket{9}\}$ with an obvious fulfillment of orthogonality conditions.
 
 Quantum variant of Sudoku was explored by considering the \emph{genuine quantum solutions} – the ones that cannot be reduced to classical counterparts by a unitary operation. 
 To study the key difference between classically equivalent SudoQ and genuine quantum SudoQ, We introduce the notion of \emph{cardinality} of a quantum Sudoku, equal to the number of distinct vectors appearing in the pattern. Cardinality greater than $N$ means that the SudoQ is not equivalent to a classical one, thus making it genuinely quantum. Subsequently, we provide the reader with the cardinality of general solutions with maximal cardinality of SudoQ in all dimensions. 
 
+In order to uncover importance of SudoQ designs for devising setups for experiments, let us observe that measurements in quantum mechanics can be represented by a set projective measurements or, equivalently, set of orthogonal vectors which span a given Hilbert space.
+Experimental setup with an access to a certain set of vectors would enable researchers to investigate different measurements.
+In the case of SudoQ grid, number of vectors equals its cardinality and maximal number of experimental setups ($3N^2$) is given for a SudoQ with maximal cardinality.
+Therefore, studying combinatorial designs allows one to address problems from the domain of quantum measurements. 
+%Making use of the fewest number of these vectors enable one to conceive different 
+%Determining admissible cardinalities of SudoQ is 
+
 
 \section{Results}
-In fact, all $4 \times 4$ SudoQ games might be parametrized by a single real parameter (is it correct??). 
+Full parametrization of $4\times 4$ SudoQ was obtained, along with a one-parameter family of grids which admits all admissible cardinalities. 
 %We provided the reader with the full parametrization of $4 \times 4$ SudoQ was obtained, along with a one-parameter family of grids that admits all admissible cardinalities for a certain values of parameters. 
 We show that the only admissible cardinalities in the $4 \times 4$ case are $4$, $6$, $8$ and $16$.
-Below, we present a $4 \times 4$ SudoQ solution with maximal (16) cardinality
+Below, we present a $4 \times 4$ SudoQ solution with the maximal cardinality, $c = 16$. Non-normalized states are used for clarity:
 \begin{example}{}\label{ex:4x4_card16}
 \[
  \begin{tabular}{!{\vrule width 1pt}c|c!{\vrule width 1pt}c|c!{\vrule width 1pt}}
@@ -75,7 +108,7 @@ Notice that vectors from the upper left block and lower right block in Example 1
 
 In the general $N^{2} \times N^{2}$ SudoQ, we obtained solutions with maximal cardinality, i.e $N^{4}$. In order to present the general solution let us introduce the following notation: each $N \times N$ block will be replaced by $N^{2} \times N^{2}$ matrix, whose rows are treated as consecutive vectors from the block, written in the computational basis. 
 For instance we can write the upper left block from Example \ref{ex:4x4_card16} as a $4\times 4$ identity matrix, and lower left block can be represented by the matrix $\mathcal{Q}$ such that $\mathcal{Q}\ket{1}=\ket{2}+\ket{4}$, $\mathcal{Q}\ket{2}=\ket{1}-\ket{3}$, etc.
-Using the above notation we are able to probe the following lemma regarding the form of the SudoQ solution:
+Using the above notation we prove the following lemma regarding the form of the SudoQ solution:
  \begin{lemma}\label{biglemma}
     Let $\pi$ be a $N$-cycle, its permutation matrix $\mathnormal{P}_\pi$ $(\mathnormal{P}_\pi^N=\mathbb{1})$, and two families of $N$-dimensional unitary matrices $\{\mathnormal{U}_i\}_{i\in I}$ and $\{\mathnormal{V}_j\}_{j\in I}$, $I=\{0,\ldots,N-1\}$. Then the grid defined as follow:
     \[
@@ -101,11 +134,11 @@ The above lemma allows us to prove the following theorem concerning the construc
     Let $\{\mathnormal{U}_i\}_{i\in I}$ and  $\{\mathnormal{V}_j\}_{j\in I}$ be families of unitary matrices, such that each tensor-product matrix $\mathnormal{U}_i\otimes\mathnormal{V}_j$ has different columns. Then $N^2\times N^2$ SudoQ grid filled according to Lemma \ref{biglemma} is a solution with the maximal cardinality $N^{4}$ for any dimension $N$.
 \end{theorem}
 
-We provide the reader with examples of families of unitary matrices which fulfill conditions specified in Theorem \ref{main:the}, thus obtaining solutions of maximal cardinality in every dimension. Compleat characterization of admissible cardinalities for $N>2$ remains an open question, however, let us note that the construction from Lemma \ref{biglemma} permits us to find also certain cardinalities in between by allowing some of $V_i$ or $U_i$ to be equal. 
+We provide the reader with examples of families of unitary matrices which fulfill conditions specified in Theorem \ref{main:the}, thus obtaining solutions of maximal cardinality in every dimension. Complete characterization of admissible cardinalities for $N>2$ remains an open question, however, let us note that the construction from Lemma \ref{biglemma} permits us to find also certain cardinalities in between by allowing some of $V_i$ or $U_i$ to be equal. 
 
 As an example of an interesting solution of maximal cardinality in dimension $9 \times 9$, let us introduce the following set of unitary matrices, leading to $3 \times 3$ blocks filled with MUBs in an analogy to the Example \ref{ex:4x4_card16}. 
 \begin{example}
-Let $\mathnormal{U}_0=\mathnormal{V}_0=\mathbb{1}$ be identity matrix of size $3$,  $\mathnormal{U}_1=\mathnormal{V}_1$ be the discrete Fourier matrix and let $P$ be a permutation matrix for $3$-Cycle $(1,3,2)$
+Let $\mathnormal{U}_0=\mathnormal{V}_0=\mathbb{1}$ be identity matrix of size $3$,  $\mathnormal{U}_1=\mathnormal{V}_1$ be the discrete Fourier matrix and let $P$ be a permutation matrix for $3$-cycle $(1,3,2)$
 \[
 \mathnormal{U}_1=\mathnormal{V}_1=
 \frac{1}{\sqrt{3}}
@@ -143,6 +176,20 @@ where $\omega=e^{2\pi i/3}$. Then any triplet of blocks from separate row and co
     \end{tabular}
 \end{equation}
 \end{example}
+
+
+\section{Conclusions}
+In the paper \cite{Nechita2020SudoQA} Ion Nechita and Jordi Pillet introduced the quantum version of the Sudoku game. Following their results, we have expanded this idea, defined the genuine quantum SudoQ and analyzed its properties. More specifically, we have found all admissible cardinalities and the parametrization of the solutions of the $4\times 4$ case.
+In the general case of $N^2 \times N^2$ SudoQ we found solutions of maximal cardinality, together with solutions of intermediate cardinalities.
+
+The problem of SudoQ is of deep consequences for the design of quantum experiments, since creation of a SudoQ grid out of a given set of vectors corresponds to devising a number of different possible measurements, in particular, a set of $N^4$ vectors SudoQ grid provides $3N^2$ different measurements.
+Despite our general construction of maximal cardinality, the full characterization of admissible cardinalities in the case of a general dimension is still missing. 
+Existence of a such parametrization would provide an insight into bounds on number of different measurement achievable from a given set of vectors.
+
+% Quantum Magic square of size $N^2$ containing semipositive operators which sum in each row and column to unity
+% provides a collection of $2 \times N^2$ generalized measurements corresponding to rows and columns of the square.
+
+% The Quantum Sudoku of size $N^2$ yields a particular constellation of $3N^2$ generalized measurements corresponding to rows, columns and blocks of this design.
 
 \printbibliography
 
