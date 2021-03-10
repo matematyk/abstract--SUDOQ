@@ -70,8 +70,9 @@ We expand the quantum variant of the popular game Sudoku by considering the \emp
 
 \section{Introduction}
 Numerous classical concepts have their quantum counterparts and the popular Sudoku puzzle is no different. Recently Nechita and Pillet \cite{Nechita2020SudoQA} introduced a quantum version of Sudoku, which was named SudoQ. In order to notice the connection between quantum and classical Sudoku, let us observe that every element of $N^{2}\times N^{2}$ Sudoku can be represented as a vector from a complex $N^{2}$-dimensional Hilbert space. Constraints are then transformed to orthogonality relations for every row, column, and $N \times N$ disjoint blocks which form an orthogonal basis. Lets us note that every Sudoku is also trivially a quantum one since every element $\{1, ..., 9\}$ can be regarded as a vector from the computational basis $\{ \ket{1}, \ldots , \ket{9}\}$ with an obvious fulfillment of orthogonality conditions.
+SudoQ grid with such orthogonality conditions is a special case of quantum Latin square \cite{musto2016quantum}, with stronger conditions extending to blocks.
 
-Quantum variant of Sudoku was explored by considering the \emph{genuine quantum solutions} – the ones that cannot be reduced to classical counterparts by a unitary operation. 
+In our work, quantum variant of Sudoku was explored by considering the \emph{genuine quantum solutions} – the ones that cannot be reduced to classical counterparts by a unitary operation. 
 To study the key difference between classically equivalent SudoQ and genuine quantum SudoQ, We introduce the notion of \emph{cardinality} of a quantum Sudoku, equal to the number of distinct vectors appearing in the pattern. Cardinality greater than $N$ means that the SudoQ is not equivalent to a classical one, thus making it genuinely quantum. Subsequently, we provide the reader with the cardinality of general solutions with maximal cardinality of SudoQ in all dimensions. 
 
 In order to uncover importance of SudoQ designs for devising setups for experiments, let us observe that measurements in quantum mechanics can be represented by a set projective measurements or, equivalently, set of orthogonal vectors which span a given Hilbert space.
@@ -179,12 +180,13 @@ where $\omega=e^{2\pi i/3}$. Then any triplet of blocks from separate row and co
 
 
 \section{Conclusions}
-In the paper, \cite{Nechita2020SudoQA} Ion Nechita and Jordi Pillet introduced the quantum version of the Sudoku game. Following their results, we have expanded this idea, defined the genuine quantum SudoQ and analyzed its properties. More specifically, we have found all admissible cardinalities and the parametrization of the solutions of the $4\times 4$ case.
+%In the paper, \cite{Nechita2020SudoQA} Ion Nechita and Jordi Pillet introduced the quantum version of the Sudoku game. 
+Following recent introduction of quantum version of Sudoku \cite{Nechita2020SudoQA}, we have expanded this idea, defined the genuine quantum SudoQ and analyzed its properties. More specifically, we have found all admissible cardinalities and the parametrization of the solutions of the $4\times 4$ case.
 In the general case of $N^2 \times N^2$ SudoQ we found solutions of maximal cardinality, together with solutions of intermediate cardinalities.
 
-The problem of SudoQ is of deep consequences for the design of quantum experiments since the creation of a SudoQ grid out of a given set of vectors corresponds to devising a number of different possible measurements, in particular, a set of $N^4$ vectors SudoQ grid provides $3N^2$ different measurements.
-Despite our general construction of maximal cardinality, the full characterization of admissible cardinalities in the case of a general dimension is still missing. 
-The existence of such parametrization would provide an insight into bounds on a number of different measurements achievable from a given set of vectors.
+The problem of SudoQ is of deep consequences for the design of quantum experiments since the creation of a SudoQ grid out of a given set of vectors corresponds to devising a number of different possible measurements, in particular, a set of $N^4$ vectors SudoQ grid provides $3N^2$ different orthogonal measurements, corresponding to $N^2$ rows, $N^2$ columns and $N^2$ blocks. 
+%Despite our general construction of maximal cardinality, the full characterization of admissible cardinalities in the case of a general dimension is still missing. 
+The existence of SudoQ of maximal cardinality provides an insight into bounds on a number of different measurements achievable from a given set of vectors.
 
 % Quantum Magic square of size $N^2$ containing semipositive operators which sum in each row and column to unity
 % provides a collection of $2 \times N^2$ generalized measurements corresponding to rows and columns of the square.
